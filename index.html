@@ -81,9 +81,9 @@
     </header>
 
     <!-- Main  -->
-    <main>
+    <main class="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-16">
         <!--! Bannner Section -->
-        <section class="max-w-screen-xl mx-auto px-4 md:px-8 lg:px-16 mt-8 " >
+        <section class=" mt-8 " >
             <div class="bg-center bg-cover bg-[#12132D] rounded-3xl flex flex-col md:flex-row items-center justify-around py-5 md:py-0" style="background-image: url('images/bgbanner.png');">
            <div class="   py-16 space-y-6">
            <div class="px-5 md:px-0">
@@ -122,10 +122,41 @@
 
             </div>
         </section>
+
+
+        <!--! Lets Discuss Section  -->
+        <section class="mt-12">
+           <div class="text-center">
+            <h1 class="text-3xl font-bold">Let's Discuss</h1>
+            <p>Join the discussion and share your insights on the latest trends. </p>
+           </div>
+
+          <div class="flex flex-col-reverse md:flex-row gap-10 mt-7">
+
+             <!--? posts Contanier  -->
+           <div id="posts-container" class="w-full">
+            
+           </div>
+
+           <!--? marks As Read Container  -->
+           <div  class="border border-red-500 w-1/2  bg-[#12132D0D] rounded-xl p-4" >
+            <div >
+               <div class="flex items-center justify-between">
+                <h1 class="text-xl font-bold">Title</h1>
+                <p>Mark as read(<span>4</span>)</p>
+               </div>
+                <div id="mark-as-read-container">
+
+                </div>
+            </div>
+           </div>
+          </div>
+        </section>
     </main>
     <footer></footer>
 
     <!--! JS Script  -->
+    <script src="js/utility.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>
