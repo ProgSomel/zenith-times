@@ -126,7 +126,7 @@ const displayLatestPosts = (posts) => {
   posts.forEach((post) => {
     const div = elementCreate("div");
     div.innerHTML = `
-        <div class="card  bg-base-100 shadow-xl">
+        <div class="card  bg-base-100 ">
         <figure class="px-5 pt-10">
           <img
             src=${post.cover_image}
