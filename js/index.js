@@ -6,12 +6,26 @@ const loadPosts = async() => {
         const res = await fetch(url)
         const data = await res.json();
         const posts = data.posts;
-        console.log(posts);
         displayPosts(posts, count);
 
     }
     catch (err) {
         console.log(err);
+    }
+}
+
+
+//! load latest Post 
+const loadlatestPosts = async() => {
+    try {
+        const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
+        const data = await res.json();
+        const latestPosts = data;
+        console.log(latestPosts);
+        displayLatestPosts(latestPosts);
+    }
+    catch (err) {
+        console.log(err.message);
     }
 }
 
@@ -97,4 +111,50 @@ const showMarkedNews = (title, viewCount) => {
     markedReadCount.innerText = count;
     
 }
+
+//! Display Latest Posts 
+const displayLatestPosts = (posts) => {
+    const latestPostsContainer = elementById('latest-posts-container');
+    posts.forEach(post => {
+        const div = elementCreate('div');
+        div.innerHTML = `
+        <div class="card  bg-base-100 shadow-xl">
+        <figure class="px-5 pt-10">
+          <img
+            src=${post.cover_image}
+            class="rounded-xl"
+          />
+        </figure>
+        <div class="card-body">
+          <div class="flex gap-4">
+            <img src="images/icons/date.svg" alt="" />
+            <p class="text-gray-400">${post.author.posted_date ? post.author.posted_date : 'No Publish Date'}</p>
+          </div>
+          <h1 class="font-bold">
+            ${post.title}
+          </h1>
+          <p class="text-gray-400">
+            ${post.description}
+          </p>
+    
+          <div class="flex items-center gap-3">
+            <div >
+                <img class="rounded-full w-8 h-8" src=${post.profile_image} alt="">
+            </div>
+            <div>
+                <h1 class="font-bold">${post.author.name}</h1>
+                <p class="text-gray-400">${post.author.designation ? post.author.designation : 'Unknown'}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+        `
+        latestPostsContainer.appendChild(div);
+    });
+  
+
+   
+
+}
 loadPosts();
+loadlatestPosts();
