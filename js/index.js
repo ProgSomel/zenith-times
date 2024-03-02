@@ -24,9 +24,9 @@ const displayPosts = (posts) => {
         
         div.innerHTML = `
         <div class="bg-[#F3F3F5] mt-5 p-5 rounded-xl">
-        <div class="flex gap-4">
-        <div>
-            <img src="images/icons/green.svg" alt="">
+        <div class="flex gap-4 ">
+        <div class="bg-white w-16 h-16 relative rounded-xl mt-1">
+            ${post.isActive ? '<img class="absolute right-0" src="images/icons/greenStatus.svg">' : '<img class="absolute right-0" src="images/icons/redStatus.svg">'}
         </div>
         <div class="">
             <div class="border-b-2 pb-4 border-dashed space-y-1">
