@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+* {
+    font-family: "Mulish", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container > div:first-child {
+    background-color: #797DFC1A;
+    border-radius: 10px;
+    border: 1px solid #797DFC;
+}
+
+.container > div:not(:first-child) {
+    background-color: #F3F3F5;
+    border-radius: 10px;
+
+}
+
+hr {
+    border-color: blue; /* Set the desired color */
+    border-width: 100%; /* Set the desired width */
+  }

@@ -40,7 +40,7 @@ const displayPosts = (posts) => {
     const div = elementCreate("div");
 
     div.innerHTML = `
-        <div class="bg-[#F3F3F5] mt-5 p-5 rounded-xl">
+        <div class=" mt-5 p-5 rounded-xl">
         <div class="flex gap-4 ">
         <div class="bg-white w-16 h-16 relative rounded-xl mt-1">
             ${
@@ -75,7 +75,7 @@ const displayPosts = (posts) => {
               <p>${post.posted_time} min</p>
           </div>
       </div>
-      <div  class=" ">
+      <div  class="">
       <img class="cursor-pointer" onclick="handleMarkRead('${post?.title.replace(
         "'",
         "\\'"
@@ -179,9 +179,17 @@ const handleSearch = () => {
 };
 
 const handleLoadingSpinner = (isLoading) => {
-    
+        const postContainer = elementById('posts-container');
         const loader = elementById('loader-spinner');
-        isLoading ? loader.classList.remove('hidden') : loader.classList.add('hidden');
+        isLoading ? (
+            loader.classList.remove('hidden'),
+            postContainer.classList.add('hidden')
+        ) : setTimeout(() => {
+            loader.classList.add('hidden');
+            postContainer.classList.remove('hidden');
+        }, 2000);
+
+         
     
 }
 
