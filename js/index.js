@@ -1,11 +1,13 @@
+let count = 0;
 const loadPosts = async() => {
+    
     try {
         const url = `https://openapi.programming-hero.com/api/retro-forum/posts`
         const res = await fetch(url)
         const data = await res.json();
         const posts = data.posts;
         console.log(posts);
-        displayPosts(posts);
+        displayPosts(posts, count);
 
     }
     catch (err) {
@@ -15,6 +17,7 @@ const loadPosts = async() => {
 
 //! Display Posts 
 const displayPosts = (posts) => {
+    
     const postsContainer = elementById('posts-container');
     posts.forEach(post => {
         const div = elementCreate('div');
@@ -70,7 +73,9 @@ const displayPosts = (posts) => {
 
 //! Handle Mark Read 
 const handleMarkRead =async(title, viewCount) => {
+    count++;
   console.log(title, viewCount);
+  
   showMarkedNews(title, viewCount);
 }
 
@@ -78,11 +83,18 @@ const showMarkedNews = (title, viewCount) => {
     const markedNewsContainer = elementById('mark-as-read-container');
     const div = elementCreate('div');
     div.innerHTML = `
-        <div class="flex justify-between">
-            <h1>${title}</h1>
+        <div class="flex justify-between bg-white py-4 px-8 mt-3 rounded-xl">
+            <h1 class="font-bold">${title}</h1>
+            <div class="flex gap-2 items-center">
+            <img src="images/icons/watches.svg" alt="">
             <p>${viewCount}</p>
+            </div>
         </div>
     `
+    
     markedNewsContainer.appendChild(div);
+    const markedReadCount = elementById('markedCount')
+    markedReadCount.innerText = count;
+    
 }
 loadPosts();
