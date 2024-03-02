@@ -55,7 +55,7 @@ const displayPosts = (posts) => {
           </div>
       </div>
       <div  class=" ">
-      <img onclick="handleMarkRead('${post?.title.replace("'", "\\'")}', '${post?.view_count}')" src="images/icons/read.svg">
+      <img class="cursor-pointer" onclick="handleMarkRead('${post?.title.replace("'", "\\'")}', '${post?.view_count}')" src="images/icons/read.svg">
     
       
       
