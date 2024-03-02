@@ -101,10 +101,12 @@
             </div>
             <div class="join w-full px-3 md:px-0">
               <input
+                id="search-input-field"
                 class="w-full input rounded-full border-none input-bordered join-item"
                 placeholder="Search here anything"
               />
               <button
+                onclick="handleSearch()"
                 class="btn bg-[#797DFC] join-item rounded-r-full text-white font-bold"
               >
                 Search
@@ -142,6 +144,16 @@
           <p class="text-gray-400">
             Join the discussion and share your insights on the latest trends.
           </p>
+
+          <!--! Loader Section  -->
+          <div  class="flex justify-center items-center ">
+           <div id="loader-spinner" class="hidden">
+            <span class="loading loading-dots loading-xs"></span>
+            <span class="loading loading-dots loading-sm"></span>
+            <span class="loading loading-dots loading-md"></span>
+            <span class="loading loading-dots loading-lg"></span>
+           </div>
+          </div>
         </div>
 
         <div class="flex flex-col-reverse md:flex-row gap-10 mt-7">
@@ -202,9 +214,10 @@
           </p>
         </div>
 
-        <div id="latest-posts-container" class="flex flex-col md:flex-row gap-4 mt-4">
-          
-        </div>
+        <div
+          id="latest-posts-container"
+          class="flex flex-col md:flex-row gap-4 mt-4"
+        ></div>
       </section>
     </main>
     <footer></footer>

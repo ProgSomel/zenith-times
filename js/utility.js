@@ -7,3 +7,4 @@ const elementCreate = (type) => {
     const element = document.createElement(type);
     return element;
 }
+
