@@ -1,6 +1,6 @@
 let count = 0;
 const loadPosts = async (isSearch, searchText) => {
-    handleLoadingSpinner(true);
+  handleLoadingSpinner(true);
   let url = "";
   if (isSearch) {
     url = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`;
@@ -170,7 +170,7 @@ const displayLatestPosts = (posts) => {
 };
 
 const handleSearch = () => {
-    handleLoadingSpinner(true);
+  handleLoadingSpinner(true);
   const searchInputField = elementById("search-input-field");
   const inputText = searchInputField.value;
   console.log(inputText);
@@ -179,20 +179,15 @@ const handleSearch = () => {
 };
 
 const handleLoadingSpinner = (isLoading) => {
-        const postContainer = elementById('posts-container');
-        const loader = elementById('loader-spinner');
-        isLoading ? (
-            loader.classList.remove('hidden'),
-            postContainer.classList.add('hidden')
-        ) : setTimeout(() => {
-            loader.classList.add('hidden');
-            postContainer.classList.remove('hidden');
-        }, 2000);
-
-         
-    
-}
+  const postContainer = elementById("posts-container");
+  const loader = elementById("loader-spinner");
+  isLoading
+    ? (loader.classList.remove("hidden"), postContainer.classList.add("hidden"))
+    : setTimeout(() => {
+        loader.classList.add("hidden");
+        postContainer.classList.remove("hidden");
+      }, 2000);
+};
 
 loadPosts();
 loadlatestPosts();
-
